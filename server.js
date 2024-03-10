@@ -16,7 +16,7 @@ app.use('/api/products',productRoutes)
 mongoose.connect(process.env.MONG_URI)
   .then(() => {
     app.listen(process.env.PORT, () => {
-      console.log("connected to db & listening on port", process.env.PORT)
+      console.log("Connected to db & listening on port", process.env.PORT)
     } )
   })
   .catch((error) => {

@@ -5,12 +5,12 @@ const router = express.Router();
 
 //GET all products
 router.get("/", (req, res) => {
-  res.json({ msg: "GET all products" });
+  res.status(200).json({ msg: "GET all products" });
 });
 
 //GET a single product
 router.get("/:id", (req, res) => {
-  res.json({ msg: "GET a single product" });
+  res.status(200).json({ msg: "GET a single product" });
 });
 
 // POST a new product
@@ -27,12 +27,12 @@ router.post("/", async (req, res) => {
 
 // DELETE a product
 router.delete("/:id", (req, res) => {
-  res.json({ msg: "DELETE a product" });
+  res.status(200).json({ msg: "DELETE a product" });
 });
 
 // UPDATE a product
 router.patch("/:id", (req, res) => {
-  res.json({ msg: "UPDATE a product" });
+  res.status(200).json({ msg: "UPDATE a product" });
 });
 
 module.exports = router;
