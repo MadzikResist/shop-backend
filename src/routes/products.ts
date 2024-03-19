@@ -1,5 +1,6 @@
 import express, { Request, Response } from "express";
-import Product, { ProductDocument } from "../models/productModel";
+import Product from "../models/productModel";
+import {addProductsToDB} from "../../controllers/productController";
 
 const router = express.Router();
 
@@ -23,16 +24,17 @@ router.get("/:id", async (req: Request, res: Response) => {
 });
 
 // POST a new product
-router.post("/", async (req: Request, res: Response) => {
-  const { name, price } = req.body;
-
-  try {
-    const product = await Product.create({ name, price });
-    res.status(200).json(product);
-  } catch (error) {
-    res.status(400).json({ error: error.message });
-  }
-});
+router.post("/add", addProductsToDB)
+// router.post("/", async (req: Request, res: Response) => {
+//   const { name, price } = req.body;
+//
+//   try {
+//     const product = await Product.create({ name, price });
+//     res.status(200).json(product);
+//   } catch (error) {
+//     res.status(400).json({ error: error.message });
+//   }
+// });
 
 // DELETE a product
 router.delete("/:id", (req: Request, res: Response) => {
