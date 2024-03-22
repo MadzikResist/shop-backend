@@ -1,7 +1,7 @@
 import express, { Application } from "express";
 import mongoose from "mongoose";
 import productRoutes from "./routes/products";
-
+import cors from "cors";
 require("dotenv").config();
 
 //express app
@@ -9,6 +9,7 @@ const app: Application = express();
 
 app.use(express.json());
 
+app.use(cors());
 //routes
 app.use("/api/products", productRoutes);
 

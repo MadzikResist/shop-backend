@@ -14,6 +14,15 @@ router.get("/", async (req: Request, res: Response) => {
   }
 });
 
+router.get('/popularProducts', async (req: Request, res: Response) => {
+  try{
+    const popularProducts = await Product.find({}, {galleryImages: 1}).limit(4);
+    res.status(200).json(popularProducts)
+  }catch(error){
+    res.status(500).json({ error: error.message });
+  }
+})
+
 //GET a single product
 router.get("/:id", async (req: Request, res: Response) => {
   try {

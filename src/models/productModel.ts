@@ -9,6 +9,10 @@ interface Product {
   price: Price;
   sizes?: string[];
   galleryImages: string[];
+  category: string;
+  colorNames: string[];
+  colorsHex: string[];
+  articleCodes: string[];
 }
 
 const productSchema = new Schema(
@@ -17,7 +21,6 @@ const productSchema = new Schema(
       type: String,
       required: true,
     },
-
     name: {
       type: String,
       required: true,
@@ -34,6 +37,22 @@ const productSchema = new Schema(
       type: [String],
       required: true,
       default: [],
+    },
+    category: {
+      type: String,
+      required: true,
+    },
+    colorNames: {
+      type: [String],
+      required: true,
+    },
+    colorsHex: {
+      type: [String],
+      required: true,
+    },
+    articleCodes: {
+      type: [String],
+      required: true,
     },
   },
   { timestamps: true },

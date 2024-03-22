@@ -21,15 +21,18 @@
 
         //add to db
         for(const productFromAPI of data.results){
-            console.log('productFromAPI',productFromAPI.price)
             const sizes = productFromAPI.variantSizes.map((variantSize: { filterCode: string; }) => variantSize.filterCode);
             const galleryImages = productFromAPI.galleryImages.map((image:  { url: string; }) => image.url)
             const product = new Product({
                 name: productFromAPI.name,
                 code: productFromAPI.code,
                 price: productFromAPI.price.formattedValue,
-                sizes: sizes,
-                galleryImages: galleryImages
+                sizes,
+                galleryImages: galleryImages,
+                category: "Sukienki",
+                colorNames: productFromAPI.articleColorNames,
+                colorsHex: productFromAPI.rgbColors,
+                articleCodes: productFromAPI.articleCodes
             })
             await product.save()
             console.log(`Product added to DB: ${product.name}`)
