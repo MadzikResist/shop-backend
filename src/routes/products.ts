@@ -16,7 +16,7 @@ router.get("/", async (req: Request, res: Response) => {
 
 router.get('/popularProducts', async (req: Request, res: Response) => {
   try{
-    const popularProducts = await Product.find({}, {galleryImages: 1}).limit(4);
+    const popularProducts = await Product.find({}, {galleryImages: 1}).limit(6);
     res.status(200).json(popularProducts)
   }catch(error){
     res.status(500).json({ error: error.message });
