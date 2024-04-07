@@ -2,6 +2,7 @@ import express, { Application } from "express";
 import mongoose from "mongoose";
 import productRoutes from "./routes/products";
 import cors from "cors";
+import cronFunctions from "./utils/crons";
 require("dotenv").config();
 
 //express app
@@ -25,3 +26,4 @@ mongoose
     console.error(error);
   });
 
+cronFunctions()
