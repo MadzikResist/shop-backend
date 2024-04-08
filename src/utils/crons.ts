@@ -16,7 +16,7 @@ const cronFunctions = async (): Promise<void> => {
                     },
                 );
                 const popularProductsData = await response.json();
-                console.log(popularProductsData)
+                console.log(popularProductsData.length)
             } catch (error) {
                 console.error("Error fetching data: ", error);
             }
